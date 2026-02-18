@@ -3,10 +3,10 @@ const ROLE_OPTIONS = [
   "Projektový manažer",
   "Obchodní manažer",
   "Designér",
-  "Business support",
+  "Podpora obchodu",
   "Vedení",
   "Marketing",
-  "Office manager",
+  "Manažer kanceláře",
 ];
 
 const TASK_COLUMNS = ["K vyřízení", "Probíhá", "Hotovo"];
