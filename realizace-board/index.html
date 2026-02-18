@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Centrální nástěnka realizací</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Centrální nástěnka realizací</h1>
+      <p>Jednoduchá interní aplikace inspirovaná Trello stylem.</p>
+    </header>
+
+    <main>
+      <section class="panel">
+        <h2>Uživatelé a role</h2>
+        <form id="user-form" class="stack">
+          <input id="user-name" type="text" placeholder="Jméno uživatele" required />
+          <select id="user-role" required>
+            <option value="">Vyberte pracovní pozici</option>
+          </select>
+          <button type="submit">Přidat uživatele</button>
+        </form>
+        <ul id="users-list" class="list"></ul>
+      </section>
+
+      <section class="panel">
+        <h2>Nová zakázka / realizace</h2>
+        <form id="project-form" class="stack">
+          <input id="project-name" type="text" placeholder="Název zakázky" required />
+          <textarea id="project-description" placeholder="Popis zakázky" required></textarea>
+          <input id="project-client" type="text" placeholder="Klient" required />
+          <input id="project-price" type="number" min="0" step="1000" placeholder="Odhadovaná cena (Kč)" required />
+          <input id="project-address" type="text" placeholder="Adresa" required />
+          <select id="project-status" required>
+            <option value="Nová">Nová</option>
+            <option value="V přípravě">V přípravě</option>
+            <option value="V realizaci">V realizaci</option>
+            <option value="Dokončeno">Dokončeno</option>
+          </select>
+          <label for="project-members">Přiřazení pracovníci</label>
+          <select id="project-members" multiple size="6"></select>
+          <button type="submit">Vytvořit zakázku</button>
+        </form>
+      </section>
+
+      <section class="panel wide">
+        <h2>Zakázky</h2>
+        <div id="projects-grid" class="projects-grid"></div>
+      </section>
+
+      <section class="panel wide">
+        <h2>Nástěnka úkolů</h2>
+        <div class="board" id="task-board"></div>
+      </section>
+    </main>
+
+    <template id="task-form-template">
+      <form class="task-form stack">
+        <input type="text" name="title" placeholder="Název úkolu (např. Dodělat návrh)" required />
+        <textarea name="description" placeholder="Popis úkolu"></textarea>
+        <select name="assignee" required></select>
+        <select name="status" required>
+          <option value="K vyřízení">K vyřízení</option>
+          <option value="Probíhá">Probíhá</option>
+          <option value="Hotovo">Hotovo</option>
+        </select>
+        <button type="submit">Přidat úkol</button>
+      </form>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
